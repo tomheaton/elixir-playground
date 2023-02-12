@@ -8,9 +8,13 @@ an elixir playground
 ```bash
 # run simple elixir script (interpreted)
 elixir simple.exs
+```
 
-# run elixir script (compiled)
-elixir main.ex
+# Compile Module
+
+```bash
+# compile module
+elixirc simple.ex
 ```
 
 ## Notes
