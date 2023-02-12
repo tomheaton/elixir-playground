@@ -10,7 +10,7 @@ an elixir playground
 elixir simple.exs
 ```
 
-# Compile Module
+## Compile Module
 
 ```bash
 # compile module
