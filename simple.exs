@@ -115,3 +115,23 @@ end
 
 SimpleOld.hello() # hello
 Simple.hello() # hello
+
+# structs # TODO: this
+# defmodule User do
+#   defstruct name: "tom", age: 20
+# end
+
+# user = %User{}
+# IO.puts(user.name) # tom
+# IO.puts(user.age) # 20
+
+# matching named functions
+
+defmodule Math do
+    # ? means it will return a boolean
+   def zero?(0), do: true
+   def zero?(x) when is_integer(x), do: false
+end
+
+IO.puts(Math.zero?(0)) # true
+IO.puts(Math.zero?(1)) # false
