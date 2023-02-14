@@ -141,3 +141,30 @@ IO.puts(Math.zero?(1)) # false
 zero_func = &Math.zero?/1
 IO.puts(zero_func.(0)) # true
 IO.puts(is_function(zero_func, 1)) # true
+
+# default arguments
+
+defmodule Concat do
+  def concat(a, b, c \\ "c") do
+    a <> b <> c
+  end
+
+  # order matters with the pattern matching
+
+  def join(a, b \\ nil, sep \\ " ")
+
+  def join(a, b, _sep) when is_nil(b) do
+    a
+  end
+
+  def join(a, b, sep) do
+    a <> sep <> b
+  end
+end
+
+IO.puts(Concat.concat("a", "b")) # abc
+IO.puts(Concat.concat("a", "b", "cd"))# abcd
+
+IO.puts(Concat.join("a", "b")) # a b
+IO.puts(Concat.join("a", "b", "-")) # a-b
+IO.puts(Concat.join("a")) # a
