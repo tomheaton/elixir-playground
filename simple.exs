@@ -125,7 +125,7 @@ Simple.hello() # hello
 # IO.puts(user.name) # tom
 # IO.puts(user.age) # 20
 
-# matching named functions
+# pattern matching named functions
 
 defmodule Math do
     # ? means it will return a boolean
@@ -135,3 +135,9 @@ end
 
 IO.puts(Math.zero?(0)) # true
 IO.puts(Math.zero?(1)) # false
+
+# function capturing
+
+zero_func = &Math.zero?/1
+IO.puts(zero_func.(0)) # true
+IO.puts(is_function(zero_func, 1)) # true
