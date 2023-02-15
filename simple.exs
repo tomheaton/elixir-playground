@@ -171,7 +171,17 @@ IO.puts(Concat.join("a")) # a
 
 # recursion
 
-# defmodule Recursion
-# end
+defmodule Recursion do
+  # patten match when n > 0
+  def print_n_times(msg, n) when n > 0 do
+    IO.puts(msg)
+    print_n_times(msg, n - 1)
+  end
 
-IO.puts("hello world")
+  # pattern match when n == 0
+  def print_n_times(_msg, 0) do
+    :ok
+  end
+end
+
+Recursion.print_n_times("recursion", 4)
