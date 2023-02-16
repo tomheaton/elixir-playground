@@ -185,3 +185,29 @@ defmodule Recursion do
 end
 
 Recursion.print_n_times("recursion", 4)
+
+# reduce and map
+
+defmodule ReduceAndMap do
+  # pattern match when list is not empty
+  def sum_list([head | tail], accumulator) do
+    sum_list(tail, head + accumulator)
+  end
+
+  # pattern match when list is empty
+  def sum_list([], accumulator) do
+    accumulator
+  end
+
+  def double_list([head | tail]) do
+    [head * 2 | double_list(tail)]
+  end
+
+  def double_list([]) do
+    []
+  end
+end
+
+list = [1, 2, 3, 4, 5]
+IO.puts(ReduceAndMap.sum_list(list, 0)) # 15
+IO.puts(ReduceAndMap.double_list(list)) # [2, 4, 6, 8, 10]
