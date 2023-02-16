@@ -217,3 +217,5 @@ end
 list = [1, 2, 3, 4, 5]
 IO.puts(ReduceAndMap.sum_list(list, 0)) # 15
 IO.puts(ReduceAndMap.double_list(list)) # [2, 4, 6, 8, 10]
+
+# TODO: something else
