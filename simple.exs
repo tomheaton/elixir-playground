@@ -189,6 +189,8 @@ Recursion.print_n_times("recursion", 4)
 # reduce and map
 
 defmodule ReduceAndMap do
+  ## reduce
+
   # pattern match when list is not empty
   def sum_list([head | tail], accumulator) do
     sum_list(tail, head + accumulator)
@@ -199,10 +201,14 @@ defmodule ReduceAndMap do
     accumulator
   end
 
+  ## map
+
+  # pattern match when list is not empty
   def double_list([head | tail]) do
     [head * 2 | double_list(tail)]
   end
 
+  # pattern match when list is empty
   def double_list([]) do
     []
   end
