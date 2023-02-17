@@ -233,3 +233,8 @@ IO.puts(result) # 6
 
 result = Enum.map([1, 2, 3], &(&1 * 2))
 IO.puts(result) # [2, 4, 6]
+
+# enumerables
+IO.puts(Enum.count([1, 2, 3])) # 3
+# can use range inside enum
+IO.puts(Enum.count(1..10)) # 10
