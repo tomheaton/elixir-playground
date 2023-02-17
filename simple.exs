@@ -218,4 +218,18 @@ list = [1, 2, 3, 4, 5]
 IO.puts(ReduceAndMap.sum_list(list, 0)) # 15
 IO.puts(ReduceAndMap.double_list(list)) # [2, 4, 6, 8, 10]
 
-# TODO: something else
+# enum map and reduce
+
+result = Enum.reduce([1, 2, 3], 0, fn(x, acc) -> x + acc end)
+IO.puts(result) # 6
+
+result = Enum.map([1, 2, 3], fn(x) -> x * 2 end)
+IO.puts(result) # [2, 4, 6]
+
+## using capture syntax
+
+result = Enum.reduce([1, 2, 3], 0, &+/2)
+IO.puts(result) # 6
+
+result = Enum.map([1, 2, 3], &(&1 * 2))
+IO.puts(result) # [2, 4, 6]
