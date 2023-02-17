@@ -192,13 +192,13 @@ defmodule ReduceAndMap do
   ## reduce
 
   # pattern match when list is not empty
-  def sum_list([head | tail], accumulator) do
-    sum_list(tail, head + accumulator)
+  def sum_list([head | tail], acCumulativer) do
+    sum_list(tail, head + acCumulativer)
   end
 
   # pattern match when list is empty
-  def sum_list([], accumulator) do
-    accumulator
+  def sum_list([], acCumulativer) do
+    acCumulativer
   end
 
   ## map
@@ -238,3 +238,15 @@ IO.puts(result) # [2, 4, 6]
 IO.puts(Enum.count([1, 2, 3])) # 3
 # can use range inside enum
 IO.puts(Enum.count(1..10)) # 10
+
+defmodule Cumulative do
+  def list_count([_ | tail]) do
+    1 + list_count(tail)
+  end
+
+  def list_count([]) do
+    0
+  end
+end
+
+IO.puts(Cumulative.list_count([1, 2, 3, 4, 5])) # 5
