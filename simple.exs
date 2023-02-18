@@ -255,4 +255,21 @@ IO.puts(Cumulative.list_count([1, 2, 3, 4, 5])) # 5
 
 spawn(fn -> IO.puts("hello from process") end)
 pid = spawn(fn -> IO.puts("hello from process") end)
+IO.puts(inspect(pid))
 IO.puts(Process.alive?(pid)) # true
+
+send(self(), {:hello, "world"})
+receive do
+  {:hello, value} -> value
+  {:goodbye, _} -> "goodbye"
+after
+  1_000 -> "nothing here after 1 second"
+end
+
+## put all the above together
+parent = self()
+spawn(fn -> send(parent, {:hello, self()}) end)
+
+receive do
+  {:hello, pid} -> "Got hello from #{inspect pid}"
+end
