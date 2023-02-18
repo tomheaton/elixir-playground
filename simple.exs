@@ -273,3 +273,15 @@ spawn(fn -> send(parent, {:hello, self()}) end)
 receive do
   {:hello, pid} -> "Got hello from #{inspect pid}"
 end
+
+# links
+self()
+spawn_link(fn -> raise "oops" end)
+
+# tasks
+Task.start(fn -> raise "oops" end)
+
+# state
+{:ok, pid} = KV.start_link()
+send(pid, {:get, :hello, self()})
+flush()
