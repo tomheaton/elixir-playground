@@ -250,3 +250,9 @@ defmodule Cumulative do
 end
 
 IO.puts(Cumulative.list_count([1, 2, 3, 4, 5])) # 5
+
+# processes
+
+spawn(fn -> IO.puts("hello from process") end)
+pid = spawn(fn -> IO.puts("hello from process") end)
+IO.puts(Process.alive?(pid)) # true
