@@ -290,3 +290,15 @@ flush()
 IO.puts("hello")
 IO.gets("name: ")
 IO.puts(:stderr, "here is an error")
+
+# files (again)
+f = File.read("test.txt")
+case f do
+  {:ok, contents} -> IO.puts(contents)
+  {:error, reason} -> IO.puts("error: #{reason}")
+end
+
+case elem(f, 0) do
+  :ok -> IO.puts("ok")
+  :error -> IO.puts("error")
+end
