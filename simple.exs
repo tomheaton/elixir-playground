@@ -285,3 +285,8 @@ Task.start(fn -> raise "oops" end)
 {:ok, pid} = KV.start_link()
 send(pid, {:get, :hello, self()})
 flush()
+
+# IO
+IO.puts("hello")
+IO.gets("name: ")
+IO.puts(:stderr, "here is an error")
